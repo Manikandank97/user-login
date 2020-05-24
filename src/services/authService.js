@@ -1,5 +1,6 @@
 export const loginUserService = (request) => {
-    const LOGIN_API_ENDPOINT = 'http://localhost:3000/api/v1/login';
+    // const LOGIN_API_ENDPOINT = 'http://localhost:3000/api/v1/login';
+    const LOGIN_API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
 
     const parameters = {
         method: 'POST',

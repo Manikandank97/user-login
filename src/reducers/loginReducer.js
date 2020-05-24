@@ -1,12 +1,25 @@
 import { LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../constant/constants';
 
-export default function (state = [], action) {
+const initialState = {
+    userLogin: false,
+    userName: ""
+}
+
+export default function (state = initialState, action) {
 
     switch (action.type) {
         case LOGIN_USER_SUCCESS:
-            return { ...state, login: true };
+            return {
+                ...state,
+                userLogin: true,
+                userName: action.response.username
+            };
         case LOGIN_USER_FAILURE:
-            return { ...state, login: false };
+            return {
+                ...state,
+                userLogin: false,
+                userName: ''
+            };
         default:
             return state;
     }

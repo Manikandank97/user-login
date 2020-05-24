@@ -4,6 +4,7 @@ import { history } from "./utils/history";
 import './App.css';
 import LoginPage from './components/loginPage';
 import RegisterPage from './components/registerPage';
+import DashboardPage from './components/dashboardPage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route exact={true} path="/" component={LoginPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
+              <Route path="/dashboard" component={DashboardPage} />
               <Redirect from="*" to="/" />
             </Switch>
           </Router>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUserAction } from '../actions/authenticAction';
+import { history } from '../utils/history';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -28,8 +29,13 @@ class LoginPage extends React.Component {
         }
     }
 
+
+
     render() {
         const { username, password, submitted } = this.state;
+        if (this.props.isLoggedIn) {
+            history.push("/dashboard");
+        }
         return (
             <div className="col-md-6 col-sm-6">
                 <h2>Login</h2>
@@ -59,6 +65,10 @@ class LoginPage extends React.Component {
 }
 
 
-const mapStateToProps = (response) => ({ response });
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.login.userLogin ? state.login.userLogin : ""
+    }
+};
 
 export default connect(mapStateToProps)(LoginPage);

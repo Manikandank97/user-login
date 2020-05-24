@@ -1,13 +1,33 @@
-import React  from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { history } from '../utils/history';
+import { LOGIN_USER_FAILURE } from '../constant/constants'
 
 class DashboardPage extends React.Component {
+
+  logOut(e) {
+    e.preventDefault();
+    this.props.dispatch({
+      type: LOGIN_USER_FAILURE,
+      userName: ''
+    });
+    history.push("/");
+  }
+
   render() {
     return (
-      <div>
-        Welcome to Dashboard !!!
+      <div className="col-md-6 col-sm-6 d-flex justify-content-between">
+        Welcome {this.props.loginUser} to Dashboard !!!
+        <button className="btn btn-warning" onClick={(e) => this.logOut(e)}>Logout</button>
       </div>
     );
   }
 }
 
-export default DashboardPage;
+const mapStateToProps = (state) => {
+  return {
+    loginUser: state.login.userLogin ? state.login.userName : ""
+  }
+}
+
+export default connect(mapStateToProps)(DashboardPage);
