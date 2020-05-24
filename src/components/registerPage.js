@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUserAction } from '../actions/authenticAction';
+import Loading from '../assets/loader.gif'
 
 class RegisterPage extends React.Component {
     constructor(props) {
@@ -130,15 +131,21 @@ class RegisterPage extends React.Component {
                     </div>
                     <div className="form-group">
                         <button className="btn btn-warning mr-4">Register</button>
+                        {this.props.isLoading && <img src={Loading} alt="image-loader" height="25" width="25" />}
                         <Link to="/login" className="btn btn-link">Cancel</Link>
                     </div>
                 </form>
+                {this.props.isUserRegister && 'User registered successfully!!! Please Login to application.'}
             </div>
         );
     }
 }
 
-
-const mapStateToProps = (response) => ({ response });
+const mapStateToProps = (state) => {
+    return {
+        isUserRegister: state.register.registerSuccess,
+        isLoading: state.register.registerLoading,
+    }
+};
 
 export default connect(mapStateToProps)(RegisterPage);

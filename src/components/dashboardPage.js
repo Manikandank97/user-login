@@ -9,7 +9,6 @@ class DashboardPage extends React.Component {
     e.preventDefault();
     this.props.dispatch({
       type: LOGIN_USER_FAILURE,
-      userName: ''
     });
     history.push("/");
   }
@@ -26,7 +25,7 @@ class DashboardPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    loginUser: state.login.userLogin ? state.login.userName : ""
+    loginUser: state.login.userLogin ? state.login.userName : ''
   }
 }
 

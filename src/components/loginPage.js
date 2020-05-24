@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUserAction } from '../actions/authenticAction';
 import { history } from '../utils/history';
+import Loading from '../assets/loader.gif'
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class LoginPage extends React.Component {
                     </div>
                     <div className="form-group">
                         <button className="btn btn-warning mr-4">Login</button>
+                        {this.props.isLoading && <img src={Loading} alt="image-loader" height="25" width="25" />}
                         <Link to="/register" className="btn btn-link">Register</Link>
                     </div>
                 </form>
@@ -67,7 +69,8 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.login.userLogin
+        isLoggedIn: state.login.userLogin,
+        isLoading: state.login.loginLoading,
     }
 };
 
