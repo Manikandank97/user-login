@@ -13,9 +13,12 @@ export const loginUserService = (request) => {
         .then(response => {
             return response.json();
         })
-        .then(json => {
-            return json;
-        });
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            console.log(error);
+        })
 };
 
 export const registerUserService = (request) => {
@@ -33,7 +36,10 @@ export const registerUserService = (request) => {
         .then(response => {
             return response.json();
         })
-        .then(json => {
-            return json;
-        });
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            console.log(error);
+        })
 };
