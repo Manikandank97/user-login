@@ -67,7 +67,7 @@ class LoginPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.login.userLogin ? state.login.userLogin : ""
+        isLoggedIn: state.login.userLogin
     }
 };
 
