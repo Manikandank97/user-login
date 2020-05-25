@@ -143,8 +143,8 @@ class RegisterPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isUserRegister: state.register.registerSuccess,
-        isLoading: state.register.registerLoading,
+        isUserRegister: state.RegisterReducer.registerSuccess,
+        isLoading: state.RegisterReducer.registerLoading,
     }
 };
 

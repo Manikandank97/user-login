@@ -6,7 +6,7 @@ const initialState = {
     registerUserName: '',
 }
 
-export default function (state = initialState, action) {
+const RegisterReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case REGISTER_USER:
@@ -31,3 +31,5 @@ export default function (state = initialState, action) {
             return state;
     }
 }
+
+export default RegisterReducer;

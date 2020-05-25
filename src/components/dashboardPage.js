@@ -25,7 +25,7 @@ class DashboardPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    loginUser: state.login.userLogin ? state.login.userName : ''
+    loginUser: state.LoginReducer.userLogin ? state.LoginReducer.userName : ''
   }
 }
 

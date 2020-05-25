@@ -6,7 +6,7 @@ const initialState = {
     userName: "",
 }
 
-export default function (state = initialState, action) {
+const LoginReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOGIN_USER:
@@ -31,3 +31,5 @@ export default function (state = initialState, action) {
             return state;
     }
 };
+
+export default LoginReducer;
